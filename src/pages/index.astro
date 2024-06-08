@@ -1,0 +1,102 @@
+---
+import CamaraIcon from "@components/icons/camara.astro";
+import VideoIcon from "@components/icons/video.astro";
+import Layout from "../layouts/Layout.astro";
+import Video from "../components/Video.astro";
+import Facebook from "@components/icons/Facebook.astro";
+import Instagram from "@components/icons/Instagram.astro";
+import Twitter from "@components/icons/Twitter.astro";
+import Thread from "@components/icons/Thread.astro";
+import Linkedin from "@components/icons/Linkedin.astro";
+
+const nav = [
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Purchase", href: "/purchase" },
+  { name: "Contact", href: "/contact" },
+];
+---
+
+<Layout title="TheCondorVision">
+  <main>
+    <aside class="absolute z-10">
+      <img src="/logo.svg" class="px-8 py-16" alt="logo" />
+      <div class="px-8 mt-8">
+        <ol class="uppercase *:font-bold">
+          {
+            nav.map((item) => (
+              <a
+                href={item.href}
+                class="text-white p-2 block hover:text-[#2d83c3] relative overflow-hidden"
+              >
+                {item.name}
+                <span class="absolute h-[2px] bg-[#2d83c3] " />
+              </a>
+            ))
+          }
+        </ol>
+      </div>
+    </aside>
+    <div
+      class="z-10 absolute w-[30%] md:w-[60%] mx-auto h-screen text-center flex justify-center items-center inset-0"
+    >
+      <h1
+        class="md:text-[55px] break-words text-white mb-24 font-bold absolute"
+      >
+        Revoluciona la forma de ver y vivir experiencias
+      </h1>
+      <p class="text-[15px] font-bold left-1/2 mt-24 text-white">
+        Perfect clips make beautiful memories
+      </p>
+      <div class="absolute flex items-center justify-center mt-56 inset-0">
+        <a href="https://www.facebook.com" class="px-4 py-2">
+          <Facebook />
+        </a>
+        <a href="https://www.instagram.com" class="px-4 py-2">
+          <Instagram />
+        </a>
+        <a href="https://www.twitter.com" class="px-4 py-2">
+          <Twitter />
+        </a>
+        <a href="https://www.linkedin.com" class="px-4 py-2">
+          <Linkedin />
+        </a>
+        <a href="https://www.thread.com" class="px-4 py-2">
+          <Thread />
+        </a>
+      </div>
+    </div>
+    <Video />
+    <div class="linea-vertical">
+      <div class="circulo">
+        <CamaraIcon />
+      </div>
+      <div class="circulo">
+        <VideoIcon />
+      </div>
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .linea-vertical {
+    position: fixed;
+    top: 0;
+    right: 10%;
+    height: 100%;
+    width: 4px;
+    background-color: #2d83c3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .circulo {
+    width: 90px;
+    height: 90px;
+    background-color: #2d83c3;
+    border-radius: 50%;
+    margin: 20px;
+  }
+</style>
