@@ -1,0 +1,68 @@
+---
+import Arrow from "@components/icons/arrow.astro";
+import Facebook from "@components/icons/Facebook.astro";
+import Instagram from "@components/icons/Instagram.astro";
+import Twitter from "@components/icons/Twitter.astro";
+import Thread from "@components/icons/Thread.astro";
+import Linkedin from "@components/icons/Linkedin.astro";
+import Drone from "@components/About/Dron";
+---
+
+<div class="py-16" style={{ backgroundImage: "url(/background.webp)" }}>
+  <Drone client:visible />
+  <div
+    class="w-[80%] mx-auto px-16 text-white bg-[#080C17] flex flex-col h-[717px] justify-center items-center"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 px-16 py-16">
+      <div></div>
+      <div class="flex flex-col items-center">
+        <h2 class="text-3xl mb-4">Join the Community</h2>
+        <p class="text-xl mb-8">Newsletter to Get in Touch</p>
+        <form class="mb-16" action="">
+          <div class="flex">
+            <input
+              class="focus:outline-none text-white p-2 w-[512px] h-[51px] bg-transparent border border-[#A8A9AC]"
+              type="email"
+              name="email"
+              id="email"
+              required
+            />
+            <button type="submit">
+              <Arrow
+                className="w-[50px] h-[51px] hover:stroke-white border border-[#143993] px-2"
+              />
+            </button>
+          </div>
+        </form>
+        <div class="flex gap-8 cursor-pointer">
+          <Facebook className="w-[50px] h-[50px]" />
+          <Instagram className="w-[50px] h-[50px]" />
+          <Twitter className="w-[50px] h-[50px]" />
+          <Linkedin className="w-[50px] h-[50px]" />
+          <Thread className="w-[50px] h-[50px]" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add(
+            "animate-fade-left",
+            "animate-duration-[1500ms]",
+            "animate-ease-linear"
+          );
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    document.querySelectorAll(".fade-in").forEach((image) => {
+      observer.observe(image);
+    });
+  });
+</script>

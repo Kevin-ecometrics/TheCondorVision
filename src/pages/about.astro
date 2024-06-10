@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { fade } from "astro:transitions";
 import Close from "@components/icons/close.astro";
 import Hero from "@components/About/Hero.astro";
+import Nosotros from "@components/About/Nosotros.astro";
 ---
 
 <Layout title="TheCondorVision - About">
@@ -11,6 +12,6 @@ import Hero from "@components/About/Hero.astro";
     <a href="/">
       <Close class="absolute top-4 right-4 w-8 h-8 hover:stroke-white" />
     </a>
-    <img src="/background.webp " class="w-full h-full object-cover" alt="" />
+    <Nosotros />
   </main>
 </Layout>
