@@ -1,0 +1,18 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import { slide } from "astro:transitions";
+import Close from "@components/icons/close.astro";
+---
+
+<Layout title="TheCondorVision - Service">
+  <main transition:animate={slide({ duration: "0.6s" })}>
+    <h1 class="text-white">Welcome to Astro</h1>
+    <p>
+      Astro is a new kind of static site builder that delivers lightning-fast
+      performance with a modern developer experience.
+    </p>
+    <a href="/">
+      <Close class="absolute top-4 right-4 w-8 h-8 hover:stroke-white" />
+    </a>
+  </main>
+</Layout>
