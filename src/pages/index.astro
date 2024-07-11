@@ -10,10 +10,9 @@ import Thread from "@components/icons/Thread.astro";
 import Linkedin from "@components/icons/Linkedin.astro";
 
 const nav = [
-  { name: "About", href: "/about" },
-  { name: "Services", href: "/services" },
-  { name: "Purchase", href: "/purchase" },
-  { name: "Contact", href: "/contact" },
+  { name: "Nosotros", href: "/about" },
+  { name: "Servicios", href: "/services" },
+  { name: "Contacto", href: "/contact" },
 ];
 ---
 
@@ -41,41 +40,44 @@ const nav = [
       class="z-10 absolute w-[30%] md:w-[60%] mx-auto h-screen text-center flex justify-center items-center inset-0"
     >
       <h1
-        class="md:text-[55px] break-words text-white mb-24 font-bold absolute"
+        class="md:text-[55px] break-words text-white mb-36 font-bold absolute"
       >
-        Revoluciona la forma de ver y vivir experiencias
+        Revoluciona tu visión, vive la experiencia
       </h1>
-      <p class="text-[15px] font-bold left-1/2 mt-24 text-white">
-        Perfect clips make beautiful memories
+      <p class="text-[35px] font-bold left-1/2 mt-24 text-white">
+        Sumérgete a una aventura sensorial única en México.
       </p>
       <div class="absolute flex items-center justify-center mt-56 inset-0">
-        <a href="https://www.facebook.com" class="px-4 py-2">
+        <a
+          href="https://www.facebook.com/thecondorvision"
+          target="_blank"
+          class="px-4 py-2"
+        >
           <Facebook />
         </a>
-        <a href="https://www.instagram.com" class="px-4 py-2">
+        <a
+          href="https://www.instagram.com/thecondorvision/"
+          target="_blank"
+          class="px-4 py-2"
+        >
           <Instagram />
         </a>
-        <a href="https://www.twitter.com" class="px-4 py-2">
-          <Twitter />
-        </a>
-        <a href="https://www.linkedin.com" class="px-4 py-2">
-          <Linkedin />
-        </a>
-        <a href="https://www.thread.com" class="px-4 py-2">
-          <Thread />
-        </a>
-      </div>
-    </div>
-    <Video />
-    <div class="linea-vertical">
-      <div class="circulo">
-        <CamaraIcon />
-      </div>
-      <div class="circulo">
-        <VideoIcon />
       </div>
     </div>
   </main>
+  <Video />
+  <div class="linea-vertical">
+    <div class="circulo">
+      <a href="/gallery">
+        <CamaraIcon />
+      </a>
+    </div>
+    <div class="circulo">
+      <a href="/video">
+        <VideoIcon />
+      </a>
+    </div>
+  </div>
 </Layout>
 
 <style>

@@ -1,0 +1,25 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import Close from "src/components/icons/close.astro";
+import { slide } from "astro:transitions";
+import Videos from "@components/Video/video.astro";
+---
+
+<Layout title="TheCondorVision - Contact">
+  <main
+    class="flex flex-col justify-center items-center"
+    transition:animate={slide({ duration: "0.8s" })}
+    style="background-image: url('/fondo.png'); background-position: center; background-repeat: no-repeat; background-size: cover;"
+  >
+    <a href="/">
+      <Close class="absolute top-4 right-4 w-8 h-8 hover:stroke-white" />
+    </a>
+    <h1 class="text-[#2D83C3] font-bold text-[16px] text-center py-16">
+      Mira la calidad.
+    </h1>
+    <h2 class="text-[35px] font-normal text-white text-center mb-16">
+      Nuestros Videos
+    </h2>
+    <Videos />
+  </main>
+</Layout>

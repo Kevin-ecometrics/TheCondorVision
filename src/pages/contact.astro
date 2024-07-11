@@ -1,0 +1,19 @@
+---
+import Layout from "src/layouts/Layout.astro";
+import Close from "src/components/icons/close.astro";
+import { fade } from "astro:transitions";
+import Hero from "src/components/Contact/Hero.astro";
+import Map from "src/components/Contact/Map.astro";
+import Form from "src/components/Contact/Form";
+---
+
+<Layout title="TheCondorVision - Contact">
+  <main transition:animate={fade({ duration: "0.8s" })}>
+    <a href="/">
+      <Close class="absolute top-4 right-4 w-8 h-8 hover:stroke-white" />
+    </a>
+    <Hero />
+    <Map />
+    <Form client:visible />
+  </main>
+</Layout>
