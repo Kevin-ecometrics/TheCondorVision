@@ -27,7 +27,7 @@ const contact: React.FC = () => {
   };
   return (
     <main
-      className="h-screen flex justify-center items-center flex-col"
+      className="md:h-screen flex justify-center items-center flex-col"
       style={{
         backgroundImage: "url('/fondo.png')",
         backgroundPosition: "center", // Centra la imagen de fondo
@@ -54,7 +54,7 @@ const contact: React.FC = () => {
               onSubmit={handleSubmit}
               className="text-white p-6 rounded shadow-md"
             >
-              <div className="flex gap-4 mb-4">
+              <div className="flex md:flex-row flex-col gap-4 mb-4">
                 <input
                   required
                   type="text"
@@ -82,7 +82,7 @@ const contact: React.FC = () => {
                   placeholder="Teléfono"
                 />
               </div>
-              <div className="flex gap-4 mb-4">
+              <div className="flex gap-4 mb-4 md:flex-row flex-col">
                 <input
                   required
                   type="text"

@@ -5,9 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import Video from "../components/Video.astro";
 import Facebook from "@components/icons/Facebook.astro";
 import Instagram from "@components/icons/Instagram.astro";
-import Twitter from "@components/icons/Twitter.astro";
-import Thread from "@components/icons/Thread.astro";
-import Linkedin from "@components/icons/Linkedin.astro";
+import Navbar from "@components/Navbar.jsx";
 
 const nav = [
   { name: "Nosotros", href: "/about" },
@@ -17,88 +15,130 @@ const nav = [
 ---
 
 <Layout title="TheCondorVision">
-  <main>
-    <aside class="absolute z-10">
-      <img src="/logo.svg" class="px-8 py-16" alt="logo" />
-      <div class="px-8 mt-8">
-        <ol class="uppercase *:font-bold">
-          {
-            nav.map((item) => (
-              <a
-                href={item.href}
-                class="text-white p-2 block hover:text-[#2d83c3] relative overflow-hidden"
-              >
-                {item.name}
-                <span class="absolute h-[2px] bg-[#2d83c3] " />
-              </a>
-            ))
-          }
-        </ol>
-      </div>
-    </aside>
-    <div
-      class="z-10 absolute w-[30%] md:w-[60%] mx-auto h-screen text-center flex justify-center items-center inset-0"
-    >
-      <h1
-        class="md:text-[55px] break-words text-white mb-36 font-bold absolute"
+  <div class="hidden md:block">
+    <main>
+      <aside class="absolute z-10">
+        <img src="/logo.svg" class="px-8 py-16" alt="logo" />
+        <div class="px-8 mt-8">
+          <ol class="uppercase *:font-bold">
+            {
+              nav.map((item) => (
+                <a
+                  href={item.href}
+                  class="text-white p-2 block hover:text-[#2d83c3] relative overflow-hidden"
+                >
+                  {item.name}
+                  <span class="absolute h-[2px] bg-[#2d83c3] " />
+                </a>
+              ))
+            }
+          </ol>
+        </div>
+      </aside>
+      <div
+        class="z-10 absolute w-[30%] md:w-[60%] mx-auto h-screen text-center md:flex justify-center items-center inset-0"
       >
+        <h1
+          class="md:text-[40px] break-words text-white mb-36 font-bold absolute"
+        >
+          Revoluciona tu visión, vive la experiencia
+        </h1>
+        <p class="text-[25px] font-bold left-1/2 mt-24 text-white">
+          Sumérgete a una aventura sensorial única en México.
+        </p>
+        <div class="absolute flex items-center justify-center mt-56 inset-0">
+          <a
+            href="https://www.facebook.com/thecondorvision"
+            target="_blank"
+            class="px-4 py-2"
+          >
+            <Facebook
+              className="hover:bg-blue-500 hover:rounded-full size-16"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/thecondorvision/"
+            target="_blank"
+            class="px-4 py-2"
+          >
+            <Instagram
+              className="hover:bg-blue-500 hover:rounded-full size-16"
+            />
+          </a>
+        </div>
+      </div>
+    </main>
+    <Video />
+    <div class="linea-vertical">
+      <div class="circulo">
+        <a href="/gallery">
+          <CamaraIcon />
+        </a>
+      </div>
+      <div class="circulo">
+        <a href="/video">
+          <VideoIcon />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="md:hidden block">
+    <Navbar client:visible />
+    <Video />
+    <div class="absolute z-10 left-[10%] top-[40%] bottom-[50%] right-[10%]">
+      <h1 class="text-[30px] text-white font-bold text-center">
         Revoluciona tu visión, vive la experiencia
       </h1>
-      <p class="text-[35px] font-bold left-1/2 mt-24 text-white">
+      <p class="text-[20px] font-semibold text-center mt-12 text-white">
         Sumérgete a una aventura sensorial única en México.
       </p>
-      <div class="absolute flex items-center justify-center mt-56 inset-0">
+      <div class="flex items-center justify-center inset-0">
         <a
           href="https://www.facebook.com/thecondorvision"
           target="_blank"
           class="px-4 py-2"
         >
-          <Facebook />
+          <Facebook className="hover:bg-blue-500 hover:rounded-full size-16" />
         </a>
         <a
           href="https://www.instagram.com/thecondorvision/"
           target="_blank"
           class="px-4 py-2"
         >
-          <Instagram />
+          <Instagram className="hover:bg-blue-500 hover:rounded-full size-16" />
+        </a>
+      </div>
+      <div class="flex justify-center items-center gap-8 mt-12 flex-col">
+        <a class="bg-blue-500 hover:bg-blue-700 px-16" href="/gallery">
+          <CamaraIcon class="size-16" />
+        </a>
+        <a class="bg-blue-500 hover:bg-blue-700 px-16" href="/video">
+          <VideoIcon class="size-16" />
         </a>
       </div>
     </div>
-  </main>
-  <Video />
-  <div class="linea-vertical">
-    <div class="circulo">
-      <a href="/gallery">
-        <CamaraIcon />
-      </a>
-    </div>
-    <div class="circulo">
-      <a href="/video">
-        <VideoIcon />
-      </a>
-    </div>
   </div>
+
+  <style>
+    .linea-vertical {
+      position: fixed;
+      top: 0;
+      right: 10%;
+      height: 100%;
+      width: 4px;
+      background-color: #2d83c3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .circulo {
+      width: 90px;
+      height: 90px;
+      background-color: #2d83c3;
+      border-radius: 50%;
+      margin: 20px;
+    }
+  </style>
 </Layout>
-
-<style>
-  .linea-vertical {
-    position: fixed;
-    top: 0;
-    right: 10%;
-    height: 100%;
-    width: 4px;
-    background-color: #2d83c3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .circulo {
-    width: 90px;
-    height: 90px;
-    background-color: #2d83c3;
-    border-radius: 50%;
-    margin: 20px;
-  }
-</style>

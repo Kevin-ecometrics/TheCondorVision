@@ -39,7 +39,7 @@ const MyComponent: React.FC = () => {
   return (
     // El resto de tu componente...
     <main>
-      <div className="grid grid-cols-1 md:grid-cols-2 px-16 gap-8 w-[80%] mx-auto mb-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 px-16 gap-8 md:w-[80%] mx-auto mb-32">
         <div className="text-white">
           <h1 className="mb-4 text-4xl font-normal">Nuestra Historia</h1>
           <p className="text-lg font-light">
@@ -73,7 +73,7 @@ const MyComponent: React.FC = () => {
           />
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 px-16 gap-8 w-[80%] mx-auto mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 px-16 gap-8 md:w-[80%] mx-auto mb-16">
         <div>
           <img
             src="/drone2.png"
@@ -83,16 +83,16 @@ const MyComponent: React.FC = () => {
         </div>
         <div className="text-white flex justify-center items-center flex-col">
           <img src="/comillas.png" alt="" />
-          <p className="text-[35px] w-[60%] text-center">
+          <p className="text-[35px] md:md:w-[60%] text-start md:text-center">
             El cielo no es el límite porque la visión del cóndor ya está ahí.
           </p>
         </div>
       </div>
       <div className="mb-16">
-        <h1 className="text-center text-[#61B7F8] font-extrabold text-xl mb-8">
+        <h1 className="text-start md:text-center text-[#61B7F8] font-extrabold px-12 text-xl mb-8">
           ¿POR QUÉ UN CÓNDOR?
         </h1>
-        <h2 className="text-center text-[#FAFBFF] text-3xl w-[70%] mx-auto">
+        <h2 className="text-start md:text-center text-[#FAFBFF] text-3xl md:w-[70%] px-12 mx-auto">
           Es un ave majestuosa que se caracteriza por tener una planeación
           elegante y estable gracias a que alcanza grandes alturas quisimos
           similar esta hermosa ave con los drones que tienen una estabilidad y

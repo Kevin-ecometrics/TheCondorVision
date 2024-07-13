@@ -99,7 +99,23 @@ let services = [
           ultra amplio de 150 grados, si ese es el vuelo que experimentaras, una
           calidad de imagen inmersiva.
         </p>
-        <div class="services-container">
+        <div class="services-container md:block hidden">
+          {
+            services.map((item, index) => (
+              <>
+                <div class="flex gap-2 text-white py-4 ">
+                  <img src={item.image} alt={item.title} class="size-12" />
+                  <div class="flex-col">
+                    <h1 class="mb-4">{item.title}</h1>
+                    <p class="mb-2 text-[#A8A9AC]">{item.description}</p>
+                  </div>
+                </div>
+                <hr class="w-full" />
+              </>
+            ))
+          }
+        </div>
+        <div class="block md:hidden">
           {
             services.map((item, index) => (
               <>
