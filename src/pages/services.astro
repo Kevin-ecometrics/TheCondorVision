@@ -2,6 +2,7 @@
 import Layout from "src/layouts/Layout.astro";
 import { fade } from "astro:transitions";
 import Close from "@components/icons/close.astro";
+import AnimationImage from "@components/AnimationImage";
 
 let services = [
   {
@@ -87,7 +88,14 @@ let services = [
     </a>
     <div class="grid grid-cols-1 md:grid-cols-2 px-16 py-8">
       <div class="mask">
-        <img src="/services.png" class="animate-fade-down" alt="" />
+        <AnimationImage
+          image="/services.png"
+          className=""
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.5 }}
+          client:load
+        />
       </div>
       <div class="w-[90%]">
         <h1 class="text-[20px] text-[#2D83C3] font-bold mb-4">SERVICIOS</h1>

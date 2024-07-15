@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import "./Form.css";
 const contact: React.FC = () => {
   const [message, setMessage] = useState("");
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
+  const [empresa, setEmpresa] = useState("");
   const charLimit = 250;
   const phoneLimit = 11;
+  const ref = useRef(null);
+  const isInView = useInView(ref);
 
   const handleTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (event.target.value.length <= charLimit) {
@@ -23,7 +28,16 @@ const contact: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log("Form submitted");
+    console.log(
+      "nombre: ",
+      name,
+      "mensaje: ",
+      message,
+      "telefono: ",
+      phone,
+      "empresa: ",
+      empresa
+    );
   };
   return (
     <main
@@ -38,8 +52,14 @@ const contact: React.FC = () => {
       <section className="text-white py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 px-16">
           <div className="col-span-1">
-            <div className="mask">
-              <img className="animate-fade-right" src="/contact.png" alt="" />
+            <div className="mask" ref={ref}>
+              <motion.img
+                src="/contact.png"
+                alt=""
+                initial={{ opacity: 0, x: -100 }} // Estado inicial de la animación: completamente transparente y 100px a la izquierda
+                animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : -100 }} // Paso 4: Controlar la animación con isInView
+                transition={{ duration: 1 }} // Duración de la transición en segundos
+              />
             </div>
           </div>
           <div className="col-span-2">
@@ -60,6 +80,8 @@ const contact: React.FC = () => {
                   type="text"
                   name="name"
                   id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="border-2 border-gray-300 p-2 rounded w-full focus:outline-none focus:border-blue-500 bg-transparent"
                   placeholder="Nombre"
                 />
@@ -88,6 +110,8 @@ const contact: React.FC = () => {
                   type="text"
                   name="empresa"
                   id="empresa"
+                  value={empresa}
+                  onChange={(e) => setEmpresa(e.target.value)}
                   className="border-2 border-gray-300 p-2 rounded w-full focus:outline-none focus:border-blue-500 bg-transparent"
                   placeholder="Empresa (No obligatorio)"
                 />
@@ -120,12 +144,14 @@ const contact: React.FC = () => {
               <p className="text-sm text-end">
                 {charCount}/{charLimit} caracteres
               </p>
-              <button
-                type="submit"
-                className="bg-[#2D83C3] text-white p-2 rounded w-full mt-4"
-              >
-                Enviar
-              </button>
+              <div className="flex justify-center items-center">
+                <button
+                  type="submit"
+                  className="bg-[#2D83C3] text-white p-2 rounded-full w-[110px] mt-4 hover:bg-blue-700"
+                >
+                  Enviar
+                </button>
+              </div>
             </form>
           </div>
         </div>

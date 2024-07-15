@@ -1,43 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 const MyComponent: React.FC = () => {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (entry.target.classList.contains("fade-in-left")) {
-            entry.target.classList.add(
-              "animate-fade-left",
-              "animate-duration-[1500ms]",
-              "animate-ease-linear"
-            );
-          } else if (entry.target.classList.contains("fade-in-right")) {
-            entry.target.classList.add(
-              "animate-fade-right",
-              "animate-duration-[1500ms]",
-              "animate-ease-linear"
-            );
-          }
-          observer.unobserve(entry.target);
-        }
-      });
-    });
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
 
-    const images = document.querySelectorAll(".fade-in");
-    images.forEach((image) => {
-      observer.observe(image);
-    });
-
-    // Limpiar el observer cuando el componente se desmonte
-    return () => {
-      images.forEach((image) => {
-        observer.unobserve(image);
-      });
-    };
-  }, []); // El array vacío significa que este efecto se ejecuta solo una vez, cuando el componente se monta
+  const isInView1 = useInView(ref1);
+  const isInView2 = useInView(ref2);
+  const isInView3 = useInView(ref3);
 
   return (
-    // El resto de tu componente...
     <main>
       <div className="grid grid-cols-1 md:grid-cols-2 px-16 gap-8 md:w-[80%] mx-auto mb-32">
         <div className="text-white">
@@ -65,20 +38,24 @@ const MyComponent: React.FC = () => {
             brinda vuelos para múltiples sectores.
           </p>
         </div>
-        <div>
-          <img
+        <div ref={ref1}>
+          <motion.img
             src="/drone1.png"
-            alt="drone"
-            className="w-full fade-in fade-in-left"
+            alt=""
+            initial={{ opacity: 0, x: 100 }} // Estado inicial de la animación: completamente transparente y 100px a la izquierda
+            animate={{ opacity: isInView1 ? 1 : 0, x: isInView1 ? 0 : 100 }} // Paso 4: Controlar la animación con isInView
+            transition={{ duration: 1 }} // Duración de la transición en segundos
           />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 px-16 gap-8 md:w-[80%] mx-auto mb-16">
-        <div>
-          <img
+        <div ref={ref2}>
+          <motion.img
             src="/drone2.png"
-            alt="drone"
-            className="w-full fade-in fade-in-right"
+            alt=""
+            initial={{ opacity: 0, x: -100 }} // Estado inicial de la animación: completamente transparente y 100px a la izquierda
+            animate={{ opacity: isInView2 ? 1 : 0, x: isInView2 ? 0 : -100 }} // Paso 4: Controlar la animación con isInView
+            transition={{ duration: 1 }} // Duración de la transición en segundos
           />
         </div>
         <div className="text-white flex justify-center items-center flex-col">
@@ -139,11 +116,13 @@ const MyComponent: React.FC = () => {
             </li>
           </ul>
         </div>
-        <div>
-          <img
+        <div ref={ref3}>
+          <motion.img
             src="/drone3.png"
-            alt="drone"
-            className="w-full fade-in fade-in-left"
+            alt=""
+            initial={{ opacity: 0, x: 100 }} // Estado inicial de la animación: completamente transparente y 100px a la izquierda
+            animate={{ opacity: isInView3 ? 1 : 0, x: isInView3 ? 0 : 100 }} // Paso 4: Controlar la animación con isInView
+            transition={{ duration: 1 }} // Duración de la transición en segundos
           />
         </div>
       </div>

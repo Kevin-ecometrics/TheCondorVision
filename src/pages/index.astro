@@ -6,6 +6,7 @@ import Video from "../components/Video.astro";
 import Facebook from "@components/icons/Facebook.astro";
 import Instagram from "@components/icons/Instagram.astro";
 import Navbar from "@components/Navbar.jsx";
+import Youtube from "@components/icons/Youtube.astro";
 
 const nav = [
   { name: "Nosotros", href: "/about" },
@@ -36,14 +37,14 @@ const nav = [
         </div>
       </aside>
       <div
-        class="z-10 absolute w-[30%] md:w-[60%] mx-auto h-screen text-center md:flex justify-center items-center inset-0"
+        class="z-10 absolute w-[30%] md:w-[80%] mx-auto h-screen text-center md:flex justify-center items-center inset-0"
       >
         <h1
-          class="md:text-[40px] break-words text-white mb-36 font-bold absolute"
+          class="md:text-[55px] break-words text-white mb-36 font-bold absolute"
         >
           Revoluciona tu visión, vive la experiencia
         </h1>
-        <p class="text-[25px] font-bold left-1/2 mt-24 text-white">
+        <p class="text-[30px] font-bold left-1/2 mt-24 text-white">
           Sumérgete a una aventura sensorial única en México.
         </p>
         <div class="absolute flex items-center justify-center mt-56 inset-0">
@@ -64,6 +65,13 @@ const nav = [
             <Instagram
               className="hover:bg-blue-500 hover:rounded-full size-16"
             />
+          </a>
+          <a
+            href="https://www.youtube.com/@TheCondorVision"
+            target="_blank"
+            class="px-4 py-2"
+          >
+            <Youtube className="hover:bg-blue-500 hover:rounded-full size-16" />
           </a>
         </div>
       </div>
@@ -86,10 +94,10 @@ const nav = [
     <Navbar client:visible />
     <Video />
     <div class="absolute z-10 left-[10%] top-[40%] bottom-[50%] right-[10%]">
-      <h1 class="text-[30px] text-white font-bold text-center">
+      <h1 class="text-[45px] text-white font-bold text-center">
         Revoluciona tu visión, vive la experiencia
       </h1>
-      <p class="text-[20px] font-semibold text-center mt-12 text-white">
+      <p class="text-[30px] font-semibold text-center mt-12 text-white">
         Sumérgete a una aventura sensorial única en México.
       </p>
       <div class="flex items-center justify-center inset-0">
@@ -98,17 +106,41 @@ const nav = [
           target="_blank"
           class="px-4 py-2"
         >
-          <Facebook className="hover:bg-blue-500 hover:rounded-full size-16" />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="44"
+            height="44"
+            viewBox="0 0 28 28"
+            stroke-width="1.5"
+            stroke="#ffffff"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path
+              d="M7 10v4h3v7h4v-7h3l1 -4h-4v-2a1 1 0 0 1 1 -1h3v-4h-3a5 5 0 0 0 -5 5v2h-3"
+            ></path>
+          </svg>
         </a>
         <a
           href="https://www.instagram.com/thecondorvision/"
           target="_blank"
           class="px-4 py-2"
         >
-          <Instagram className="hover:bg-blue-500 hover:rounded-full size-16" />
+          <Instagram
+            className="md:hover:bg-blue-500 hover:rounded-full size-24"
+          />
+        </a>
+        <a
+          href="https://www.youtube.com/@TheCondorVision"
+          target="_blank"
+          class="px-4 py-2"
+        >
+          <Youtube className="hover:bg-blue-500 hover:rounded-full" />
         </a>
       </div>
-      <div class="flex justify-center items-center gap-8 mt-12 flex-col">
+      <div class="flex justify-center items-center gap-8 mt-12">
         <a class="bg-blue-500 hover:bg-blue-700 px-16" href="/gallery">
           <CamaraIcon class="size-16" />
         </a>
@@ -123,7 +155,7 @@ const nav = [
     .linea-vertical {
       position: fixed;
       top: 0;
-      right: 10%;
+      right: 5%;
       height: 100%;
       width: 4px;
       background-color: #2d83c3;

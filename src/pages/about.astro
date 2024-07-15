@@ -7,7 +7,10 @@ import Nosotros from "@components/About/Nosotros.astro";
 ---
 
 <Layout title="TheCondorVision - About">
-  <main transition:animate={fade({ duration: "0.8s" })}>
+  <main
+    class="overflow-x-hidden"
+    transition:animate={fade({ duration: "0.8s" })}
+  >
     <Hero />
     <a href="/">
       <Close class="fixed top-4 right-4 w-8 h-8 hover:stroke-white" />

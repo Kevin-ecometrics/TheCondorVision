@@ -11,18 +11,17 @@ const videoIds = [
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
   {
     videoIds.map((id) => (
-      <a
-        href={`https://www.youtube.com/watch?v=${id}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="block overflow-hidden rounded-lg shadow-lg"
-      >
-        <img
-          src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-          alt="YouTube Video Thumbnail"
-          class="w-full h-auto transform hover:scale-105 transition-transform duration-200 ease-in-out"
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <iframe
+          width="660"
+          height="515"
+          src={`https://www.youtube.com/embed/${id}`}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
         />
-      </a>
+      </div>
     ))
   }
 </div>

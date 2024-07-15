@@ -1,11 +1,18 @@
+---
+import AnimationImage from "@components/AnimationImage";
+---
+
 <div class="hidden md:block">
   <img src="/Parallax.png" class="w-full" alt="" />
   <div class="absolute inset-0 justify-center items-center flex-col flex mb-96">
     <a href="/">
-      <img
-        src="/logofull.svg"
-        class="z-10 size-64 animate-fade-up delay-500"
-        alt=""
+      <AnimationImage
+        image="/logofull.svg"
+        className="z-10 size-64"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.5 }}
+        client:load
       />
     </a>
     <h1 class="text-2xl text-white w-[80%] text-center">
